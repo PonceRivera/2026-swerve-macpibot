@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.613309481216458,
+        "y": 7.515348837209302
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 3.7980222571356608,
+        "y": 7.695434872452454
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 2.477531305903399,
+        "y": 5.113989266547406
+      },
+      "prevControl": {
+        "x": 2.6023532277724937,
+        "y": 5.330598333349572
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "salida Cris"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -31.159304508344352
+  },
+  "reversed": false,
+  "folder": "Auto Cris",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "useDefaultConstraints": true
+}

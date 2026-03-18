@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.4257954545454545,
+        "y": 0.6234431818181827
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 0.8284772727272718,
+        "y": 3.241375
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 8.197852272727271,
+        "y": 2.241613636363637
+      },
+      "prevControl": {
+        "x": 7.94824311221584,
+        "y": 2.22763983985808
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "sis"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "reversed": false,
+  "folder": "Auto Tadeo",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 178.15238973400537
+  },
+  "useDefaultConstraints": true
+}

@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.5700909090909088,
+        "y": 7.539318181818182
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 1.931306818181818,
+        "y": 5.416113636363637
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 6.9094999999999995,
+        "y": 5.220284090909091
+      },
+      "prevControl": {
+        "x": 6.115875,
+        "y": 4.900772727272726
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "salida ga"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -0.830315486258014
+  },
+  "reversed": false,
+  "folder": "Auto Gael",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -43.31531568210363
+  },
+  "useDefaultConstraints": true
+}

@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 6.961034090909091,
+        "y": 3.35475
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 5.744829545454545,
+        "y": 7.281647727272728
+      },
+      "isLocked": false,
+      "linkedName": "salida ga otra vez"
+    },
+    {
+      "anchor": {
+        "x": 2.9310681818181816,
+        "y": 3.9937727272727273
+      },
+      "prevControl": {
+        "x": 2.2920454545454545,
+        "y": 5.292431818181818
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "final ga"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "reversed": false,
+  "folder": "Auto Gael",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "useDefaultConstraints": true
+}

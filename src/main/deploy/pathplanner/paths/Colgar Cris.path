@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 2.673397727272727,
+        "y": 2.7981818181818188
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.943658659137304,
+        "y": 4.434553378558591
+      },
+      "isLocked": false,
+      "linkedName": "Disparo Cri"
+    },
+    {
+      "anchor": {
+        "x": 1.2250453842815927,
+        "y": 4.691357661008294
+      },
+      "prevControl": {
+        "x": 1.9559498804845958,
+        "y": 4.658434035053204
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "reversed": false,
+  "folder": "Auto Cris",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 35.39479584498705
+  },
+  "useDefaultConstraints": true
+}

@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 0.9830795454545451,
+        "y": 6.137590909090909
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 1.3188791795528658,
+        "y": 6.053502508950626
+      },
+      "isLocked": false,
+      "linkedName": "Salida 1"
+    },
+    {
+      "anchor": {
+        "x": 2.6527840909090905,
+        "y": 4.952306818181819
+      },
+      "prevControl": {
+        "x": 0.9321169841160055,
+        "y": 5.241534768357148
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Disparo 1"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -32.00538320808361
+  },
+  "reversed": false,
+  "folder": "Auto Julio",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -165.2032377549427
+  },
+  "useDefaultConstraints": true
+}
