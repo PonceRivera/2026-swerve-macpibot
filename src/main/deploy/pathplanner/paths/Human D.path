@@ -3,29 +3,45 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 7.280545454545454,
-        "y": 5.982988636363636
+        "x": 7.713431818181817,
+        "y": 7.034284090909091
       },
       "prevControl": null,
       "nextControl": {
-        "x": 8.373068181818182,
-        "y": 1.7571931818181818
+        "x": 7.773118640444767,
+        "y": 5.446894520048831
       },
       "isLocked": false,
       "linkedName": "Human 1"
     },
     {
       "anchor": {
-        "x": 2.508488636363636,
-        "y": 2.994011363636364
+        "x": 7.713431818181817,
+        "y": 3.6699284436493738
       },
       "prevControl": {
-        "x": 7.981409090909093,
-        "y": 2.2313068181818188
+        "x": 8.4048007762425,
+        "y": 4.202244669123306
+      },
+      "nextControl": {
+        "x": 7.068807788257694,
+        "y": 3.173603252218251
+      },
+      "isLocked": false,
+      "linkedName": "Disparo 2"
+    },
+    {
+      "anchor": {
+        "x": 3.0129695885509835,
+        "y": 4.78948121645796
+      },
+      "prevControl": {
+        "x": 5.511681574239711,
+        "y": 7.434221824686942
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Disparo 2"
+      "linkedName": null
     }
   ],
   "rotationTargets": [],
@@ -42,13 +58,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 25.34617594194661
+    "rotation": -29.054604099077032
   },
   "reversed": false,
   "folder": "Auto Julio",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -47.00955381302117
+    "rotation": -90.0
   },
   "useDefaultConstraints": true
 }

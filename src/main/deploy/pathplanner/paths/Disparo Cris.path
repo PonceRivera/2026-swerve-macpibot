@@ -8,30 +8,62 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 9.259749552772808,
-        "y": 2.096064400715563
+        "x": 7.672204545452747,
+        "y": 4.849238636360422
       },
       "isLocked": false,
       "linkedName": "Neutral Cris"
     },
     {
       "anchor": {
-        "x": 2.639785330948121,
-        "y": 2.761305903398926
+        "x": 7.620983899821109,
+        "y": 4.448747763864043
       },
       "prevControl": {
-        "x": 5.495456171735242,
-        "y": 1.4957245080500892
+        "x": 7.840037876990271,
+        "y": 4.328268076421004
+      },
+      "nextControl": {
+        "x": 6.647459749552772,
+        "y": 4.984186046511627
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 2.785813953488372,
+        "y": 5.049087656529516
+      },
+      "prevControl": {
+        "x": 3.9869434427832005,
+        "y": 6.140237184589759
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "neutral cris 2"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.5,
+      "rotationDegrees": -86.14503807508463
+    },
+    {
+      "waypointRelativePos": 1.4491978609625675,
+      "rotationDegrees": 0.0
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
-  "eventMarkers": [],
+  "eventMarkers": [
+    {
+      "name": "Roller",
+      "waypointRelativePos": 0.0677966101694915,
+      "endWaypointRelativePos": null,
+      "command": null
+    }
+  ],
   "globalConstraints": {
     "maxVelocity": 3.0,
     "maxAcceleration": 3.0,
@@ -42,7 +74,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 30.256437163529284
+    "rotation": -39.42883567971428
   },
   "reversed": false,
   "folder": "Auto Cris",

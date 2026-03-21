@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.508488636363636,
-        "y": 2.994011363636364
+        "x": 7.393920454542914,
+        "y": 7.590852272730082
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.8377199190677747,
-        "y": 3.0192468346308345
+        "x": 7.6608042461186505,
+        "y": 7.2085072032062225
       },
       "isLocked": false,
-      "linkedName": "Disparo 2"
+      "linkedName": "salida prueva 1"
     },
     {
       "anchor": {
-        "x": 1.5808749999999998,
-        "y": 3.5918068181818184
+        "x": 7.393920454542914,
+        "y": 6.3025000000028095
       },
       "prevControl": {
-        "x": 1.3527135925678402,
-        "y": 3.6939947438803866
+        "x": 7.343295896110218,
+        "y": 6.752220475526885
       },
       "nextControl": null,
       "isLocked": false,
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 90.0
+    "rotation": -82.87498365109828
   },
   "reversed": false,
-  "folder": "Auto Julio",
+  "folder": "Auto Gael",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 25.34617594194661
+    "rotation": -0.23027493205094327
   },
   "useDefaultConstraints": true
 }

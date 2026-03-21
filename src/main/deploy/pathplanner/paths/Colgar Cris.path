@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.673397727272727,
-        "y": 2.7981818181818188
+        "x": 2.785813953488372,
+        "y": 5.049087656529516
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.943658659137304,
-        "y": 4.434553378558591
+        "x": 2.588688608581836,
+        "y": 3.0703839147335246
       },
       "isLocked": false,
-      "linkedName": "Disparo Cri"
+      "linkedName": "neutral cris 2"
     },
     {
       "anchor": {
-        "x": 1.2250453842815927,
-        "y": 4.691357661008294
+        "x": 1.2606261180679783,
+        "y": 2.8911091234347044
       },
       "prevControl": {
-        "x": 1.9559498804845958,
-        "y": 4.658434035053204
+        "x": 1.9915306142709797,
+        "y": 2.8581854974796137
       },
       "nextControl": null,
       "isLocked": false,
@@ -48,7 +48,7 @@
   "folder": "Auto Cris",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 35.39479584498705
+    "rotation": -39.42883567971428
   },
   "useDefaultConstraints": true
 }

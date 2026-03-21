@@ -3,29 +3,45 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 8.197852272727271,
-        "y": 2.241613636363637
+        "x": 8.344087988862443,
+        "y": 2.8936442931746704
       },
       "prevControl": null,
       "nextControl": {
-        "x": 8.300920454545455,
-        "y": 1.788113636363637
+        "x": 9.147209877388775,
+        "y": 2.88967936180197
       },
       "isLocked": false,
-      "linkedName": "sis"
+      "linkedName": "tostada 1"
     },
     {
       "anchor": {
-        "x": 2.714625,
-        "y": 3.3856704545454543
+        "x": 4.672920454545455,
+        "y": 2.756954545454546
       },
       "prevControl": {
-        "x": 2.2095909090909087,
-        "y": 2.6538863636363637
+        "x": 3.475590461358325,
+        "y": 2.8768175760432317
+      },
+      "nextControl": {
+        "x": 5.545158705143359,
+        "y": 2.669635994422727
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 3.013522727272727,
+        "y": 2.8936442931746704
+      },
+      "prevControl": {
+        "x": 2.760752621670643,
+        "y": 2.921178051267543
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "disparo lol"
+      "linkedName": "tostada 2"
     }
   ],
   "rotationTargets": [],
@@ -42,7 +58,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 19.573125830410216
+    "rotation": 44.30972280213492
   },
   "reversed": false,
   "folder": "Auto Tadeo",

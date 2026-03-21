@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.714625,
-        "y": 3.3856704545454543
+        "x": 3.0341363636363634,
+        "y": 4.746170454545454
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.9454891589908563,
-        "y": 3.2897447536439515
+        "x": 3.682695025159216,
+        "y": 3.9239588712392584
       },
       "isLocked": false,
-      "linkedName": "disparo lol"
+      "linkedName": "Tostada 4"
     },
     {
       "anchor": {
-        "x": 1.5499545454545451,
-        "y": 3.7257954545454552
+        "x": 1.5040071556350623,
+        "y": 3.751055456171735
       },
       "prevControl": {
-        "x": 1.2805417568285835,
-        "y": 3.8048393985120175
+        "x": 2.849017333236771,
+        "y": 3.634632321117375
       },
       "nextControl": null,
       "isLocked": false,
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -88.97696981133215
+    "rotation": 0.0
   },
   "reversed": false,
   "folder": "Auto Tadeo",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 19.573125830410216
+    "rotation": -30.762719534238848
   },
   "useDefaultConstraints": true
 }

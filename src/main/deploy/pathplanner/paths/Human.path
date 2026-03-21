@@ -3,35 +3,57 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.6527840909090905,
-        "y": 4.952306818181819
+        "x": 2.493756708407871,
+        "y": 5.049087656529516
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.955930080399929,
-        "y": 5.550226288382272
+        "x": 3.3079953447715074,
+        "y": 4.647121747438606
       },
       "isLocked": false,
       "linkedName": "Disparo 1"
     },
     {
       "anchor": {
-        "x": 7.280545454545454,
-        "y": 5.982988636363636
+        "x": 7.713431818181817,
+        "y": 7.034284090909091
       },
       "prevControl": {
-        "x": 6.961034090909091,
-        "y": 5.323352272727273
+        "x": 7.053795454545455,
+        "y": 6.817840909090909
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": "Human 1"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.2908805031446541,
+      "rotationDegrees": -177.60246991927474
+    },
+    {
+      "waypointRelativePos": 0.8443396226415117,
+      "rotationDegrees": 0.0
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
-  "eventMarkers": [],
+  "eventMarkers": [
+    {
+      "name": "BajarIntake",
+      "waypointRelativePos": 0.5728813559322034,
+      "endWaypointRelativePos": null,
+      "command": null
+    },
+    {
+      "name": "Roller",
+      "waypointRelativePos": 0.8271186440677959,
+      "endWaypointRelativePos": null,
+      "command": null
+    }
+  ],
   "globalConstraints": {
     "maxVelocity": 3.0,
     "maxAcceleration": 3.0,
@@ -42,7 +64,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -47.00955381302117
+    "rotation": -90.0
   },
   "reversed": false,
   "folder": "Auto Julio",

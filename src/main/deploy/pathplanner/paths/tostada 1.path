@@ -3,35 +3,64 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.4257954545454545,
-        "y": 0.6234431818181827
+        "x": 3.631931818181818,
+        "y": 0.6440568181818185
       },
       "prevControl": null,
       "nextControl": {
-        "x": 0.8284772727272718,
-        "y": 3.241375
+        "x": 1.2972052160026086,
+        "y": 2.295008085237074
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 8.197852272727271,
-        "y": 2.241613636363637
+        "x": 5.89114262459217,
+        "y": 2.6935994537740156
       },
       "prevControl": {
-        "x": 7.94824311221584,
-        "y": 2.22763983985808
+        "x": 5.346428221006817,
+        "y": 2.679598341041438
+      },
+      "nextControl": {
+        "x": 6.671723457803451,
+        "y": 2.713663179224903
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 8.344087988862443,
+        "y": 2.8936442931746704
+      },
+      "prevControl": {
+        "x": 7.706445063264094,
+        "y": 2.837381682092464
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "sis"
+      "linkedName": "tostada 1"
     }
   ],
   "rotationTargets": [],
   "constraintZones": [],
   "pointTowardsZones": [],
-  "eventMarkers": [],
+  "eventMarkers": [
+    {
+      "name": "BajarIntake",
+      "waypointRelativePos": 0.8402154398563739,
+      "endWaypointRelativePos": null,
+      "command": null
+    },
+    {
+      "name": "Roller",
+      "waypointRelativePos": 1.3285457809694805,
+      "endWaypointRelativePos": null,
+      "command": null
+    }
+  ],
   "globalConstraints": {
     "maxVelocity": 3.0,
     "maxAcceleration": 3.0,
@@ -48,7 +77,7 @@
   "folder": "Auto Tadeo",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 178.15238973400537
+    "rotation": -179.8369274137604
   },
   "useDefaultConstraints": true
 }

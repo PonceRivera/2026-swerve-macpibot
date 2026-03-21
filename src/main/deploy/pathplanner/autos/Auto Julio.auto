@@ -13,7 +13,7 @@
         {
           "type": "named",
           "data": {
-            "name": "IntakeOut"
+            "name": "BajarIntake"
           }
         },
         {
@@ -31,13 +31,13 @@
         {
           "type": "named",
           "data": {
-            "name": "ShooterStop"
+            "name": "PararRoller"
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "IntakeIn"
+            "name": "Subir"
           }
         },
         {
@@ -62,12 +62,6 @@
           "type": "named",
           "data": {
             "name": "ShooterStop"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Colgar"
           }
         },
         {

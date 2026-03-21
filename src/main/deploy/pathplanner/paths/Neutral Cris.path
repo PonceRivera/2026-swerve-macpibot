@@ -31,7 +31,14 @@
   "rotationTargets": [],
   "constraintZones": [],
   "pointTowardsZones": [],
-  "eventMarkers": [],
+  "eventMarkers": [
+    {
+      "name": "BajarIntake",
+      "waypointRelativePos": 0.6338983050847462,
+      "endWaypointRelativePos": null,
+      "command": null
+    }
+  ],
   "globalConstraints": {
     "maxVelocity": 3.0,
     "maxAcceleration": 3.0,
@@ -48,7 +55,7 @@
   "folder": "Auto Cris",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -31.159304508344352
+    "rotation": -25.769327624338672
   },
   "useDefaultConstraints": true
 }
