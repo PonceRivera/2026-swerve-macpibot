@@ -26,7 +26,11 @@ import frc.robot.subsystems.Shooter;
 
 public class RobotContainer {
         private double MaxSpeed = TunerConstants.kSpeedAt12Volts.in(MetersPerSecond);
-        private double MaxAngularRate = RotationsPerSecond.of(0.75).in(RadiansPerSecond);
+        // Redujimos la tasa de giro de 0.75 a 0.45 para evitar sobrecarga en los engranajes (tintineo)
+        private double MaxAngularRate = RotationsPerSecond.of(0.45).in(RadiansPerSecond);
+        
+        // Multiplicador de velocidad de 0.2 (20%) a 1.0 (100%) ajustable por el piloto
+        private double speedMultiplier = 1.0;
 
         private final SwerveRequest.FieldCentric drive = new SwerveRequest.FieldCentric()
                         .withDeadband(MaxSpeed * 0.1)
@@ -74,9 +78,9 @@ public class RobotContainer {
         private void configureBindings() {
                 drivetrain.setDefaultCommand(
                    drivetrain.applyRequest(() -> drive
-                      .withVelocityX(MathUtil.applyDeadband(joystick.getLeftY(), 0.2)* MaxSpeed)
-                      .withVelocityY(MathUtil.applyDeadband(joystick.getLeftX(), 0.2)* MaxSpeed)
-                      .withRotationalRate(MathUtil.applyDeadband(-joystick.getRightX(), 0.5)* MaxAngularRate)));
+                      .withVelocityX(MathUtil.applyDeadband(joystick.getLeftY(), 0.2) * MaxSpeed * speedMultiplier)
+                      .withVelocityY(MathUtil.applyDeadband(joystick.getLeftX(), 0.2) * MaxSpeed * speedMultiplier)
+                      .withRotationalRate(MathUtil.applyDeadband(-joystick.getRightX(), 0.5) * MaxAngularRate * speedMultiplier)));
 
                 final var idle = new SwerveRequest.Idle();
                 RobotModeTriggers.disabled().whileTrue(
@@ -86,6 +90,25 @@ public class RobotContainer {
                 joystick.cross().whileTrue(drivetrain.applyRequest(() -> brake));
                 joystick.circle().whileTrue(drivetrain.applyRequest(() -> point
                         .withModuleDirection(new Rotation2d(-joystick.getLeftY(), -joystick.getLeftX()))));
+
+                // Control dinamico de velocidad del Swerve via D-Pad (povUp / povDown)
+                joystick.povUp().onTrue(Commands.runOnce(() -> {
+                        speedMultiplier = Math.min(1.0, speedMultiplier + 0.1);
+                        SmartDashboard.putNumber("Swerve Speed %", speedMultiplier * 100);
+                }));
+                joystick.povDown().onTrue(Commands.runOnce(() -> {
+                        speedMultiplier = Math.max(0.2, speedMultiplier - 0.1);
+                        SmartDashboard.putNumber("Swerve Speed %", speedMultiplier * 100);
+                }));
+
+                // Auto-Align (Apuntar al AprilTag) con R1 (Boton 6) + Calibrar Shooter
+                joystick.button(6).whileTrue(
+                    drivetrain.applyRequest(() -> drive
+                        .withVelocityX(MathUtil.applyDeadband(joystick.getLeftY(), 0.2) * MaxSpeed * speedMultiplier)
+                        .withVelocityY(MathUtil.applyDeadband(joystick.getLeftX(), 0.2) * MaxSpeed * speedMultiplier)
+                        .withRotationalRate(limelight.tieneObjetivo() ? -limelight.getXOffset() * 0.05 * MaxAngularRate : 0)
+                    ).alongWith(shooter.dispararSegunDistanciaCommand(limelight::getDistanciaMetros))
+                );
 
                 joystick.button(8).whileTrue(shooter.shootCommand());
                 joystick.button(8).whileTrue(
