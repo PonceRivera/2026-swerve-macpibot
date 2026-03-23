@@ -23,6 +23,8 @@ import frc.robot.subsystems.Gancho;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Limelight;
 import frc.robot.subsystems.Shooter;
+// import frc.robot.subsystems.kraken;
+
 
 public class RobotContainer {
         private double MaxSpeed = TunerConstants.kSpeedAt12Volts.in(MetersPerSecond);
@@ -49,6 +51,8 @@ public class RobotContainer {
         public final Shooter shooter = new Shooter();
         public final Limelight limelight = new Limelight();
         public final Gancho gancho = new Gancho();
+        // public final kraken m_kraken = new kraken();
+
 
         private final SendableChooser<Command> autoChooser;
 
@@ -109,6 +113,7 @@ public class RobotContainer {
                         .withRotationalRate(limelight.tieneObjetivo() ? -limelight.getXOffset() * 0.05 * MaxAngularRate : 0)
                     ).alongWith(shooter.dispararSegunDistanciaCommand(limelight::getDistanciaMetros))
                 );
+
 
                 joystick.button(8).whileTrue(shooter.shootCommand());
                 joystick.button(8).whileTrue(

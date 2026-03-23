@@ -1,6 +1,7 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix6.hardware.TalonFX;
+import com.ctre.phoenix6.CANBus;
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 import com.ctre.phoenix6.signals.InvertedValue;
@@ -19,7 +20,7 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Shooter extends SubsystemBase {
-
+    private final CANBus canbus = new CANBus("canivore");
     public static final int MOTOR_LEFT_CAN_ID = 23;
     public static final int MOTOR_RIGHT_CAN_ID = 16;
     public static final double SHOOT_SPEED = -0.8;
@@ -36,38 +37,46 @@ public class Shooter extends SubsystemBase {
     private static final double PENDIENTE_POTENCIA = -0.15; // Ajuste de potencia por metro extra
 
     private final SparkMax motorRight = new SparkMax(MOTOR_RIGHT_CAN_ID, MotorType.kBrushless);
-    private final TalonFX motorLeft = new TalonFX(MOTOR_LEFT_CAN_ID);
     private final Timer spinUpTimer = new Timer();
 
-    public Shooter() {
+    // Dejar sin inicializar aquí, inicializar dentro de la función del constructor
+    private final TalonFX motorLeft;
+    private final TalonFXConfiguration leftConfig;
 
+    private final DutyCycleOut m_leftRequest; // mover este arriba para reutilizarlo en vez de crear nuevos
+
+    public Shooter() {
         SparkMaxConfig rightConfig = new SparkMaxConfig();
         rightConfig.idleMode(IdleMode.kCoast);
         rightConfig.smartCurrentLimit(60);
         motorRight.configure(rightConfig, ResetMode.kResetSafeParameters,
                 PersistMode.kPersistParameters);
 
-        TalonFXConfiguration leftConfig = new TalonFXConfiguration();
+        this.motorLeft = new TalonFX(MOTOR_LEFT_CAN_ID, canbus);
+        this.leftConfig = new TalonFXConfiguration();
+        
+        // Configuración de motorLeft (Kraken)
+        leftConfig.MotorOutput.NeutralMode = NeutralModeValue.Coast;
         leftConfig.CurrentLimits.StatorCurrentLimit = 60;
         leftConfig.CurrentLimits.StatorCurrentLimitEnable = true;
-        leftConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
+        
         motorLeft.getConfigurator().apply(leftConfig);
-        motorLeft.setNeutralMode(NeutralModeValue.Coast);
 
+        this.m_leftRequest = new DutyCycleOut(0.0);
     }
 
-    public void shoot() {
-        motorLeft.setControl(new DutyCycleOut(SHOOT_SPEED));
+     public void shoot() {
+        motorLeft.setControl(m_leftRequest.withOutput(SHOOT_SPEED));
         motorRight.set(SHOOT_SPEED_RIGTH);
     }
 
     public void shootFull() {
-        motorLeft.setControl(new DutyCycleOut(SHOOT_FULL_SPEED));
+        motorLeft.setControl(m_leftRequest.withOutput(SHOOT_FULL_SPEED));
         motorRight.set(SHOOT_FULL_SPEED);
     }
 
     public void stop() {
-        motorLeft.setControl(new DutyCycleOut(0));
+        motorLeft.setControl(m_leftRequest.withOutput(0));
         motorRight.set(0);
     }
 
@@ -86,7 +95,7 @@ public class Shooter extends SubsystemBase {
         double ratioSpin = SHOOT_SPEED_RIGTH / SHOOT_SPEED;
         double velocidadDer = velocidadIzq * ratioSpin;
 
-        motorLeft.setControl(new DutyCycleOut(velocidadIzq));
+        motorLeft.setControl(m_leftRequest.withOutput(velocidadIzq));
         motorRight.set(velocidadDer);
     }
 
@@ -98,7 +107,7 @@ public class Shooter extends SubsystemBase {
         return Commands.runEnd(
                 () -> {
                     motorRight.set(SHOOT_SPEED_RIGTH);
-                    motorLeft.setControl(new DutyCycleOut(spinUpTimer.hasElapsed(SPIN_UP_DELAY) ? SHOOT_SPEED : 0.0));
+                    motorLeft.setControl(m_leftRequest.withOutput(spinUpTimer.hasElapsed(SPIN_UP_DELAY) ? SHOOT_SPEED : 0.0));
                 },
                 () -> {
                     stop();
@@ -123,3 +132,4 @@ public class Shooter extends SubsystemBase {
                 this);
     }
 }
+
