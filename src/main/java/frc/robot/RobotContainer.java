@@ -23,7 +23,7 @@ import frc.robot.subsystems.Gancho;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Limelight;
 import frc.robot.subsystems.Shooter;
-// import frc.robot.subsystems.kraken;
+import frc.robot.subsystems.kraken;
 
 
 public class RobotContainer {
@@ -51,7 +51,7 @@ public class RobotContainer {
         public final Shooter shooter = new Shooter();
         public final Limelight limelight = new Limelight();
         public final Gancho gancho = new Gancho();
-        // public final kraken m_kraken = new kraken();
+        public final kraken m_kraken = new kraken();
 
 
         private final SendableChooser<Command> autoChooser;
@@ -112,24 +112,23 @@ public class RobotContainer {
                         .withVelocityY(MathUtil.applyDeadband(joystick.getLeftX(), 0.2) * MaxSpeed * speedMultiplier)
                         .withRotationalRate(limelight.tieneObjetivo() ? -limelight.getXOffset() * 0.05 * MaxAngularRate : 0)
                     ).alongWith(shooter.dispararSegunDistanciaCommand(limelight::getDistanciaMetros))
+                     .alongWith(m_kraken.runKrakenCommand())
                 );
 
 
                 joystick.button(8).whileTrue(shooter.shootCommand());
-                joystick.button(8).whileTrue(
-                        Commands.waitSeconds(2.0).andThen(intake.cicloDefensaAbajoCommand())
-                                                .finallyDo((interrupted) -> intake.subirPorTiempoCommand(1.4)
-                                                                .schedule()));
+                
+                 
 
                 joystick.button(7).whileTrue(shooter.dispararSegunDistanciaCommand(limelight::getDistanciaMetros));
                 joystick.button(7).whileTrue(
                                 Commands.waitSeconds(2.0).andThen(intake.cicloDefensaAbajoCommand())
-                                                .finallyDo((interrupted) -> intake.subirPorTiempoCommand(1.4)
+                                                .finallyDo((interrupted) -> intake.subirPorTiempoCommand(1.0)
                                                                 .schedule()));
 
                 drivetrain.registerTelemetry(logger::telemeterize);
-                operator.b().onTrue(intake.subirPorTiempoCommand(1.4));
-                operator.a().onTrue(intake.bajarPorTiempoCommand(1.3));
+                operator.b().onTrue(intake.bajarPorTiempoCommand(1.3));
+                operator.a().onTrue(intake.subirPorTiempoCommand(1.4));
                 operator.x().whileTrue(intake.activarRollerCommand());
                 operator.y().whileTrue(intake.invertirRollerCommand());
                 operator.leftBumper().whileTrue(gancho.subirManualCommand(0.3));

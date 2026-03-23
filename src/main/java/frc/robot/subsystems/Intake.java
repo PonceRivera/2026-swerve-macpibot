@@ -242,11 +242,11 @@ public class Intake extends SubsystemBase {
     }
 
     public Command bajarPorTiempoCommand(double segundos) {
-        return bajarCommand().onlyIf(() -> deployEncoder.getPosition() < 1.0).withTimeout(segundos);
+        return bajarCommand().withTimeout(segundos);
     }
 
     public Command subirPorTiempoCommand(double segundos) {
-        return subirCommand().onlyIf(() -> deployEncoder.getPosition() > 1.0).withTimeout(segundos);
+        return subirCommand().withTimeout(segundos);
     }
 
     @Override

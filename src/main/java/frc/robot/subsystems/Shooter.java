@@ -18,12 +18,14 @@ import java.util.function.DoubleSupplier;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.generated.TunerConstants;
 
 public class Shooter extends SubsystemBase {
-    private final CANBus canbus = new CANBus("canivore");
+    // private final CANBus canbus = new CANBus("canivore");
+
     public static final int MOTOR_LEFT_CAN_ID = 23;
     public static final int MOTOR_RIGHT_CAN_ID = 16;
-    public static final double SHOOT_SPEED = -0.8;
+    public static final double SHOOT_SPEED = 0.7;
     public static final double SHOOT_SPEED_RIGTH = -0.7;
     public static final double SHOOT_FULL_SPEED = 1.0;
 
@@ -52,20 +54,21 @@ public class Shooter extends SubsystemBase {
         motorRight.configure(rightConfig, ResetMode.kResetSafeParameters,
                 PersistMode.kPersistParameters);
 
-        this.motorLeft = new TalonFX(MOTOR_LEFT_CAN_ID, canbus);
+        // this.motorLeft = new TalonFX(MOTOR_LEFT_CAN_ID, canbus);
+        this.motorLeft = new TalonFX(23, TunerConstants.kCANBus.getName());
         this.leftConfig = new TalonFXConfiguration();
-        
+
         // Configuración de motorLeft (Kraken)
         leftConfig.MotorOutput.NeutralMode = NeutralModeValue.Coast;
         leftConfig.CurrentLimits.StatorCurrentLimit = 60;
         leftConfig.CurrentLimits.StatorCurrentLimitEnable = true;
-        
-        motorLeft.getConfigurator().apply(leftConfig);
 
-        this.m_leftRequest = new DutyCycleOut(0.0);
+        // motorLeft.getConfigurator().apply(leftConfig);
+
+        this.m_leftRequest = new DutyCycleOut(0.50);
     }
 
-     public void shoot() {
+    public void shoot() {
         motorLeft.setControl(m_leftRequest.withOutput(SHOOT_SPEED));
         motorRight.set(SHOOT_SPEED_RIGTH);
     }
@@ -86,10 +89,8 @@ public class Shooter extends SubsystemBase {
             return;
         }
 
-        // Formula lineal simple: Potencia = Base + (Distancia - Min) * Pendiente
         double velocidadIzq = POTENCIA_MINima + (distanciaMetros - DISTANCIA_MIN_METROS) * PENDIENTE_POTENCIA;
 
-        // Limitar potencia entre MINIma y MAXima
         velocidadIzq = Math.max(Math.min(velocidadIzq, POTENCIA_MINima), POTENCIA_MAXima);
 
         double ratioSpin = SHOOT_SPEED_RIGTH / SHOOT_SPEED;
@@ -107,7 +108,8 @@ public class Shooter extends SubsystemBase {
         return Commands.runEnd(
                 () -> {
                     motorRight.set(SHOOT_SPEED_RIGTH);
-                    motorLeft.setControl(m_leftRequest.withOutput(spinUpTimer.hasElapsed(SPIN_UP_DELAY) ? SHOOT_SPEED : 0.0));
+                    motorLeft.setControl(
+                            m_leftRequest.withOutput(spinUpTimer.hasElapsed(SPIN_UP_DELAY) ? SHOOT_SPEED : 0.0));
                 },
                 () -> {
                     stop();
@@ -132,4 +134,3 @@ public class Shooter extends SubsystemBase {
                 this);
     }
 }
-
