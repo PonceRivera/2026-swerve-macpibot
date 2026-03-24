@@ -3,73 +3,35 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.013522727272727,
-        "y": 2.8936442931746704
+        "x": 2.704318181818181,
+        "y": 2.6935994537740156
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.1374431818218955,
-        "y": 4.354511363638601
+        "x": 1.0395417891642664,
+        "y": 2.6842119792267956
       },
       "isLocked": false,
       "linkedName": "tostada 2"
     },
     {
       "anchor": {
-        "x": 3.5907045454582587,
-        "y": 5.292431818184054
+        "x": 1.303303034908233,
+        "y": 2.8936442931746704
       },
       "prevControl": {
-        "x": 2.9735170818490952,
-        "y": 4.801854763266515
-      },
-      "nextControl": {
-        "x": 4.266125816276521,
-        "y": 5.8292965430912185
-      },
-      "isLocked": false,
-      "linkedName": null
-    },
-    {
-      "anchor": {
-        "x": 8.20815909090909,
-        "y": 5.581022727272727
-      },
-      "prevControl": {
-        "x": 8.61712401679476,
-        "y": 5.486644045496697
+        "x": 2.4529784820779392,
+        "y": 2.846216971322858
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": "tostada 3"
     }
   ],
-  "rotationTargets": [
-    {
-      "waypointRelativePos": 1.3930817610062973,
-      "rotationDegrees": 176.31963478863204
-    },
-    {
-      "waypointRelativePos": 1.509433962264148,
-      "rotationDegrees": -1.0222474268973323
-    }
-  ],
+  "rotationTargets": [],
   "constraintZones": [],
   "pointTowardsZones": [],
-  "eventMarkers": [
-    {
-      "name": "BajarIntake",
-      "waypointRelativePos": 1.3105924596050265,
-      "endWaypointRelativePos": null,
-      "command": null
-    },
-    {
-      "name": "Roller",
-      "waypointRelativePos": 1.5583482944344684,
-      "endWaypointRelativePos": null,
-      "command": null
-    }
-  ],
+  "eventMarkers": [],
   "globalConstraints": {
     "maxVelocity": 3.0,
     "maxAcceleration": 3.0,
@@ -80,7 +42,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 0.38976119531807796
   },
   "reversed": false,
   "folder": "Auto Tadeo",

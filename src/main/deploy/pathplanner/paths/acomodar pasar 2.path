@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.6619856887298745,
-        "y": 7.661377459749552
+        "x": 7.775272727272727,
+        "y": 2.474362767078594
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.8466984646490774,
-        "y": 7.841463494992704
+        "x": 7.549416311730474,
+        "y": 2.367176575997814
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "tomar centro"
     },
     {
       "anchor": {
-        "x": 2.477531305903399,
-        "y": 5.113989266547406
+        "x": 5.896734104657469,
+        "y": 2.474362767078594
       },
       "prevControl": {
-        "x": 2.6023532277724937,
-        "y": 5.330598333349572
+        "x": 5.483425872157116,
+        "y": 2.5033769385695175
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "salida Cris"
+      "linkedName": "neutrla centro "
     }
   ],
   "rotationTargets": [],
@@ -42,10 +42,10 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -25.769327624338672
+    "rotation": -59.37778704234522
   },
   "reversed": false,
-  "folder": "Auto Cris",
+  "folder": "Auto Gael",
   "idealStartingState": {
     "velocity": 0,
     "rotation": 0.0

@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.5646332737030413,
-        "y": 4.254042933810375
+        "x": 4.797763864042934,
+        "y": 5.341144901610018
       },
       "isLocked": false,
       "linkedName": "salida Cris"
@@ -20,8 +20,8 @@
         "y": 7.044812164579606
       },
       "prevControl": {
-        "x": 6.722669136360675,
-        "y": 7.000611661245776
+        "x": 6.923291592128802,
+        "y": 6.055062611806798
       },
       "nextControl": null,
       "isLocked": false,
@@ -29,7 +29,21 @@
     }
   ],
   "rotationTargets": [],
-  "constraintZones": [],
+  "constraintZones": [
+    {
+      "name": "Constraints Zone",
+      "minWaypointRelativePos": 0.15798922800718104,
+      "maxWaypointRelativePos": 0.5080789946140034,
+      "constraints": {
+        "maxVelocity": 2.0,
+        "maxAcceleration": 2.0,
+        "maxAngularVelocity": 540.0,
+        "maxAngularAcceleration": 720.0,
+        "nominalVoltage": 12.0,
+        "unlimited": false
+      }
+    }
+  ],
   "pointTowardsZones": [],
   "eventMarkers": [
     {

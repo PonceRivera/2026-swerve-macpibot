@@ -11,51 +11,59 @@
           }
         },
         {
-          "type": "path",
+          "type": "named",
           "data": {
-            "pathName": "Tostada 2"
+            "name": "BajarIntake"
           }
         },
         {
-          "type": "named",
+          "type": "parallel",
           "data": {
-            "name": "Shoot"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "nueva tostada"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Roller"
+                }
+              }
+            ]
           }
         },
         {
           "type": "named",
           "data": {
             "name": "PararRoller"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Tostada 2"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot"
           }
         },
         {
           "type": "path",
           "data": {
             "pathName": "Tostada 3"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Tostada 4"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Shoot"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "PararRoller"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Tostada 5"
           }
         }
       ]

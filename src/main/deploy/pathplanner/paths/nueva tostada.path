@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.6619856887298745,
-        "y": 7.661377459749552
+        "x": 5.89114262459217,
+        "y": 2.6935994537740156
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.8466984646490774,
-        "y": 7.841463494992704
+        "x": 6.89114262459217,
+        "y": 2.6935994537740156
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "pase neutral"
     },
     {
       "anchor": {
-        "x": 2.477531305903399,
-        "y": 5.113989266547406
+        "x": 8.228772727272727,
+        "y": 2.6935994537740156
       },
       "prevControl": {
-        "x": 2.6023532277724937,
-        "y": 5.330598333349572
+        "x": 7.228772727272727,
+        "y": 2.6935994537740156
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "salida Cris"
+      "linkedName": "recojer neutral"
     }
   ],
   "rotationTargets": [],
@@ -42,10 +42,10 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -25.769327624338672
+    "rotation": 0.0
   },
   "reversed": false,
-  "folder": "Auto Cris",
+  "folder": "Auto Tadeo",
   "idealStartingState": {
     "velocity": 0,
     "rotation": 0.0

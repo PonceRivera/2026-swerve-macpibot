@@ -192,12 +192,12 @@ public class Intake extends SubsystemBase {
     public Command cicloDefensaAbajoCommand() {
         return runOnce(() -> rollerMotor2.set(ROLLER_2_SPEED))
                 .andThen(
-                        subirPorTiempoCommand(0.9)
+                        subirPorTiempoCommand(0.8)
                                 .andThen(bajarPorTiempoCommand(1.3)))
                 .repeatedly()
                 .finallyDo((interrupted) -> {
                     stop();
-                    subirPorTiempoCommand(1.4).schedule();
+                    subirPorTiempoCommand(0.8).schedule();
                 });
     }
 

@@ -17,45 +17,53 @@
           }
         },
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "Neutral Cris"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Neutral Cris"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "BajarIntake"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "Roller"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Disparo Cris"
+                }
+              }
+            ]
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Disparo Cris"
+            "pathName": "cris4"
           }
         },
         {
           "type": "named",
           "data": {
             "name": "Shoot"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "PararRoller"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Subir"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Colgar Cris"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "GanchoBajar"
           }
         }
       ]

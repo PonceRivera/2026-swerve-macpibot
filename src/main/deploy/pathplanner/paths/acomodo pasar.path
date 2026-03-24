@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.6619856887298745,
-        "y": 7.661377459749552
+        "x": 3.135063789626687,
+        "y": 3.983334331646364
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.8466984646490774,
-        "y": 7.841463494992704
+        "x": 2.7843768944143146,
+        "y": 2.8265332954400857
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "salida centro"
     },
     {
       "anchor": {
-        "x": 2.477531305903399,
-        "y": 5.113989266547406
+        "x": 3.679725695333362,
+        "y": 2.474362767078594
       },
       "prevControl": {
-        "x": 2.6023532277724937,
-        "y": 5.330598333349572
+        "x": 3.4787443039279586,
+        "y": 2.991473736672299
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "salida Cris"
+      "linkedName": "acomodo pasar centro"
     }
   ],
   "rotationTargets": [],
@@ -42,10 +42,10 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -25.769327624338672
+    "rotation": -73.73979529168805
   },
   "reversed": false,
-  "folder": "Auto Cris",
+  "folder": "Auto Gael",
   "idealStartingState": {
     "velocity": 0,
     "rotation": 0.0

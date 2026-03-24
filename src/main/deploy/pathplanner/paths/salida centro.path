@@ -3,48 +3,35 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.7762272727272723,
-        "y": 0.39669318181818203
+        "x": 3.687785633129659,
+        "y": 3.983334331646364
       },
       "prevControl": null,
       "nextControl": {
-        "x": 0.9212386363636362,
-        "y": 2.6126590909090908
+        "x": 3.2223346358736906,
+        "y": 4.007741951996974
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 7.393920454542914,
-        "y": 7.590852272730082
+        "x": 3.135063789626687,
+        "y": 3.983334331646364
       },
       "prevControl": {
-        "x": 7.148058724676229,
-        "y": 7.636151387367802
+        "x": 2.886148907445464,
+        "y": 3.960066726941365
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "salida prueva 1"
+      "linkedName": "salida centro"
     }
   ],
   "rotationTargets": [],
   "constraintZones": [],
   "pointTowardsZones": [],
-  "eventMarkers": [
-    {
-      "name": "BajarIntake",
-      "waypointRelativePos": 0.6912028725314159,
-      "endWaypointRelativePos": null,
-      "command": null
-    },
-    {
-      "name": "Roller",
-      "waypointRelativePos": 0.7450628366247746,
-      "endWaypointRelativePos": null,
-      "command": null
-    }
-  ],
+  "eventMarkers": [],
   "globalConstraints": {
     "maxVelocity": 3.0,
     "maxAcceleration": 3.0,
@@ -55,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -0.23027493205094327
+    "rotation": 0.0
   },
   "reversed": false,
   "folder": "Auto Gael",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": -0.643745714175356
   },
   "useDefaultConstraints": true
 }

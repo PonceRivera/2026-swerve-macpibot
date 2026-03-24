@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 7.393920454542914,
-        "y": 7.590852272730082
+        "x": 5.896734104657469,
+        "y": 2.474362767078594
       },
       "prevControl": null,
       "nextControl": {
-        "x": 7.6608042461186505,
-        "y": 7.2085072032062225
+        "x": 6.953092998190927,
+        "y": 2.3543034274320718
       },
       "isLocked": false,
-      "linkedName": "salida prueva 1"
+      "linkedName": "neutrla centro "
     },
     {
       "anchor": {
-        "x": 7.393920454542914,
-        "y": 6.3025000000028095
+        "x": 7.775272727272727,
+        "y": 2.474362767078594
       },
       "prevControl": {
-        "x": 7.343295896110218,
-        "y": 6.752220475526885
+        "x": 6.608001960097329,
+        "y": 2.462462025764304
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "tomar centro"
     }
   ],
   "rotationTargets": [],
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -82.87498365109828
+    "rotation": 0.0
   },
   "reversed": false,
   "folder": "Auto Gael",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -0.23027493205094327
+    "rotation": -59.37778704234522
   },
   "useDefaultConstraints": true
 }

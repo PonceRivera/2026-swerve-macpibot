@@ -25,12 +25,12 @@ import frc.robot.subsystems.Limelight;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.kraken;
 
-
 public class RobotContainer {
         private double MaxSpeed = TunerConstants.kSpeedAt12Volts.in(MetersPerSecond);
-        // Redujimos la tasa de giro de 0.75 a 0.45 para evitar sobrecarga en los engranajes (tintineo)
+        // Redujimos la tasa de giro de 0.75 a 0.45 para evitar sobrecarga en los
+        // engranajes (tintineo)
         private double MaxAngularRate = RotationsPerSecond.of(0.45).in(RadiansPerSecond);
-        
+
         // Multiplicador de velocidad de 0.2 (20%) a 1.0 (100%) ajustable por el piloto
         private double speedMultiplier = 1.0;
 
@@ -53,7 +53,6 @@ public class RobotContainer {
         public final Gancho gancho = new Gancho();
         public final kraken m_kraken = new kraken();
 
-
         private final SendableChooser<Command> autoChooser;
 
         public RobotContainer() {
@@ -68,12 +67,12 @@ public class RobotContainer {
 
         private void registerNamedCommands() {
                 NamedCommands.registerCommand("BajarIntake", intake.bajarPorTiempoCommand(1.3));
-                NamedCommands.registerCommand("Subir", intake.subirPorTiempoCommand(1.4));
+                NamedCommands.registerCommand("Subir", intake.subirPorTiempoCommand(1.0));
                 NamedCommands.registerCommand("PararRoller", intake.pararRollerCommand());
                 NamedCommands.registerCommand("Roller", intake.runOnce(intake::activarRoller));
                 NamedCommands.registerCommand("Shoot", shooter.shootCommand()
                                 .alongWith(Commands.waitSeconds(2.0).andThen(intake.cicloDefensaAbajoCommand()))
-                                .withTimeout(7.0));
+                                .withTimeout(4.0));
                 NamedCommands.registerCommand("GanchoReposo", gancho.irAIndiceCommand(0));
                 NamedCommands.registerCommand("GanchoSubir", gancho.irAIndiceCommand(1));
                 NamedCommands.registerCommand("GanchoBajar", gancho.irAIndiceCommand(2));
@@ -81,10 +80,13 @@ public class RobotContainer {
 
         private void configureBindings() {
                 drivetrain.setDefaultCommand(
-                   drivetrain.applyRequest(() -> drive
-                      .withVelocityX(MathUtil.applyDeadband(joystick.getLeftY(), 0.2) * MaxSpeed * speedMultiplier)
-                      .withVelocityY(MathUtil.applyDeadband(joystick.getLeftX(), 0.2) * MaxSpeed * speedMultiplier)
-                      .withRotationalRate(MathUtil.applyDeadband(-joystick.getRightX(), 0.5) * MaxAngularRate * speedMultiplier)));
+                                drivetrain.applyRequest(() -> drive
+                                                .withVelocityX(MathUtil.applyDeadband(joystick.getLeftY(), 0.2)
+                                                                * MaxSpeed * speedMultiplier)
+                                                .withVelocityY(MathUtil.applyDeadband(-joystick.getLeftX(), 0.2)
+                                                                * MaxSpeed * speedMultiplier)
+                                                .withRotationalRate(MathUtil.applyDeadband(-joystick.getRightX(), 0.5)
+                                                                * MaxAngularRate * speedMultiplier)));
 
                 final var idle = new SwerveRequest.Idle();
                 RobotModeTriggers.disabled().whileTrue(
@@ -93,7 +95,7 @@ public class RobotContainer {
                 joystick.button(10).onTrue(drivetrain.runOnce(drivetrain::seedFieldCentric));
                 joystick.cross().whileTrue(drivetrain.applyRequest(() -> brake));
                 joystick.circle().whileTrue(drivetrain.applyRequest(() -> point
-                        .withModuleDirection(new Rotation2d(-joystick.getLeftY(), -joystick.getLeftX()))));
+                                .withModuleDirection(new Rotation2d(-joystick.getLeftY(), -joystick.getLeftX()))));
 
                 // Control dinamico de velocidad del Swerve via D-Pad (povUp / povDown)
                 joystick.povUp().onTrue(Commands.runOnce(() -> {
@@ -107,18 +109,19 @@ public class RobotContainer {
 
                 // Auto-Align (Apuntar al AprilTag) con R1 (Boton 6) + Calibrar Shooter
                 joystick.button(6).whileTrue(
-                    drivetrain.applyRequest(() -> drive
-                        .withVelocityX(MathUtil.applyDeadband(joystick.getLeftY(), 0.2) * MaxSpeed * speedMultiplier)
-                        .withVelocityY(MathUtil.applyDeadband(joystick.getLeftX(), 0.2) * MaxSpeed * speedMultiplier)
-                        .withRotationalRate(limelight.tieneObjetivo() ? -limelight.getXOffset() * 0.05 * MaxAngularRate : 0)
-                    ).alongWith(shooter.dispararSegunDistanciaCommand(limelight::getDistanciaMetros))
-                     .alongWith(m_kraken.runKrakenCommand())
-                );
-
+                                drivetrain.applyRequest(() -> drive
+                                                .withVelocityX(MathUtil.applyDeadband(joystick.getLeftY(), 0.2)
+                                                                * MaxSpeed * speedMultiplier)
+                                                .withVelocityY(MathUtil.applyDeadband(-joystick.getLeftX(), 0.2)
+                                                                * MaxSpeed * speedMultiplier)
+                                                .withRotationalRate(limelight.tieneObjetivo()
+                                                                ? -limelight.getXOffset() * 0.05 * MaxAngularRate
+                                                                : 0))
+                                                .alongWith(shooter.dispararSegunDistanciaCommand(
+                                                                limelight::getDistanciaMetros))
+                                                .alongWith(m_kraken.runKrakenCommand()));
 
                 joystick.button(8).whileTrue(shooter.shootCommand());
-                
-                 
 
                 joystick.button(7).whileTrue(shooter.dispararSegunDistanciaCommand(limelight::getDistanciaMetros));
                 joystick.button(7).whileTrue(
@@ -127,8 +130,8 @@ public class RobotContainer {
                                                                 .schedule()));
 
                 drivetrain.registerTelemetry(logger::telemeterize);
-                operator.b().onTrue(intake.bajarPorTiempoCommand(1.3));
-                operator.a().onTrue(intake.subirPorTiempoCommand(1.4));
+                operator.b().onTrue(intake.bajarPorTiempoCommand(1.0));
+                operator.a().onTrue(intake.subirPorTiempoCommand(0.8));
                 operator.x().whileTrue(intake.activarRollerCommand());
                 operator.y().whileTrue(intake.invertirRollerCommand());
                 operator.leftBumper().whileTrue(gancho.subirManualCommand(0.3));

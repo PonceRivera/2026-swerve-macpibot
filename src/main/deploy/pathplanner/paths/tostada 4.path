@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 8.20815909090909,
-        "y": 5.581022727272727
+        "x": 1.303303034908233,
+        "y": 2.8936442931746704
       },
       "prevControl": null,
       "nextControl": {
-        "x": 7.332079545454545,
-        "y": 5.601636363636365
+        "x": 0.4272234894536875,
+        "y": 2.9142579295383078
       },
       "isLocked": false,
       "linkedName": "tostada 3"
@@ -48,7 +48,7 @@
   "folder": "Auto Tadeo",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 0.38976119531807796
   },
   "useDefaultConstraints": true
 }

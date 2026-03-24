@@ -5,15 +5,28 @@
     "data": {
       "commands": [
         {
-          "type": "path",
-          "data": {
-            "pathName": "Salida "
-          }
-        },
-        {
           "type": "named",
           "data": {
             "name": "BajarIntake"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Salida "
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Roller"
+                }
+              }
+            ]
           }
         },
         {
@@ -25,25 +38,32 @@
         {
           "type": "named",
           "data": {
-            "name": "Shoot"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
             "name": "PararRoller"
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "Subir"
+            "name": "Shoot"
           }
         },
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "Human"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Human"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Roller"
+                }
+              }
+            ]
           }
         },
         {
@@ -55,19 +75,13 @@
         {
           "type": "named",
           "data": {
+            "name": "PararRoller"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
             "name": "Shoot"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "ShooterStop"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "GanchoBajar"
           }
         }
       ]
