@@ -21,31 +21,28 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.generated.TunerConstants;
 
 public class Shooter extends SubsystemBase {
-    // private final CANBus canbus = new CANBus("canivore");
 
     public static final int MOTOR_LEFT_CAN_ID = 23;
     public static final int MOTOR_RIGHT_CAN_ID = 16;
-    public static final double SHOOT_SPEED = 0.7;
+    public static final double SHOOT_SPEED = 0.6;
     public static final double SHOOT_SPEED_RIGTH = -0.7;
     public static final double SHOOT_FULL_SPEED = 1.0;
 
-    private static final double SPIN_UP_DELAY = 0.5;
+    private static final double SPIN_UP_DELAY = 0.7;
     private static final double SHOOT_FULL_TIMEOUT = 4.0;
 
-    // Configuración Kitbot 2026 (85 grados)
     private static final double DISTANCIA_MIN_METROS = 1.0;
-    private static final double POTENCIA_MINima = -0.4;
-    private static final double POTENCIA_MAXima = -1.0;
-    private static final double PENDIENTE_POTENCIA = -0.15; // Ajuste de potencia por metro extra
+    private static final double POTENCIA_MINima = 0.4;
+    private static final double POTENCIA_MAXima = 1.0;
+    private static final double PENDIENTE_POTENCIA = 0.15;
 
     private final SparkMax motorRight = new SparkMax(MOTOR_RIGHT_CAN_ID, MotorType.kBrushless);
     private final Timer spinUpTimer = new Timer();
 
-    // Dejar sin inicializar aquí, inicializar dentro de la función del constructor
     private final TalonFX motorLeft;
     private final TalonFXConfiguration leftConfig;
 
-    private final DutyCycleOut m_leftRequest; // mover este arriba para reutilizarlo en vez de crear nuevos
+    private final DutyCycleOut m_leftRequest;
 
     public Shooter() {
         SparkMaxConfig rightConfig = new SparkMaxConfig();
@@ -63,8 +60,6 @@ public class Shooter extends SubsystemBase {
         leftConfig.CurrentLimits.StatorCurrentLimit = 60;
         leftConfig.CurrentLimits.StatorCurrentLimitEnable = true;
 
-        // motorLeft.getConfigurator().apply(leftConfig);
-
         this.m_leftRequest = new DutyCycleOut(0.50);
     }
 
@@ -75,7 +70,7 @@ public class Shooter extends SubsystemBase {
 
     public void shootFull() {
         motorLeft.setControl(m_leftRequest.withOutput(SHOOT_FULL_SPEED));
-        motorRight.set(SHOOT_FULL_SPEED);
+        motorRight.set(-SHOOT_FULL_SPEED);
     }
 
     public void stop() {
@@ -89,9 +84,8 @@ public class Shooter extends SubsystemBase {
             return;
         }
 
-        double velocidadIzq = POTENCIA_MINima + (distanciaMetros - DISTANCIA_MIN_METROS) * PENDIENTE_POTENCIA;
-
-        velocidadIzq = Math.max(Math.min(velocidadIzq, POTENCIA_MINima), POTENCIA_MAXima);
+        double velocidadIzq = POTENCIA_MINima + (distanciaMetros - DISTANCIA_MIN_METROS) * PENDIENTE_POTENCIA + 0.02;
+        velocidadIzq = Math.min(Math.max(velocidadIzq, POTENCIA_MINima), POTENCIA_MAXima);
 
         double ratioSpin = SHOOT_SPEED_RIGTH / SHOOT_SPEED;
         double velocidadDer = velocidadIzq * ratioSpin;
@@ -122,15 +116,49 @@ public class Shooter extends SubsystemBase {
     }
 
     public Command shootFullCommand() {
-        return Commands.run(this::shootFull, this)
-                .withTimeout(SHOOT_FULL_TIMEOUT)
-                .andThen(Commands.runOnce(this::stop, this));
+        return Commands.runEnd(
+                () -> {
+                    motorRight.set(-SHOOT_FULL_SPEED);
+                    motorLeft.setControl(
+                            m_leftRequest.withOutput(spinUpTimer.hasElapsed(SPIN_UP_DELAY) ? SHOOT_FULL_SPEED : 0.0));
+                },
+                () -> {
+                    stop();
+                    spinUpTimer.stop();
+                },
+                this).beforeStarting(() -> {
+                    spinUpTimer.reset();
+                    spinUpTimer.start();
+                });
     }
 
     public Command dispararSegunDistanciaCommand(DoubleSupplier distanceSupplier) {
         return Commands.runEnd(
-                () -> dispararSegunDistancia(distanceSupplier.getAsDouble()),
+                () -> {
+                    double dist = distanceSupplier.getAsDouble();
+                    if (dist <= 0) {
+                        stop();
+                        return;
+                    }
+
+                    double velocidadIzq = POTENCIA_MINima + (dist - DISTANCIA_MIN_METROS) * PENDIENTE_POTENCIA + 0.02;
+                    velocidadIzq = Math.min(Math.max(velocidadIzq, POTENCIA_MINima), POTENCIA_MAXima);
+
+                    double ratioSpin = SHOOT_SPEED_RIGTH / SHOOT_SPEED;
+                    double velocidadDer = velocidadIzq * ratioSpin;
+
+                    motorRight.set(velocidadDer);
+                    motorLeft.setControl(
+                            m_leftRequest.withOutput(spinUpTimer.hasElapsed(SPIN_UP_DELAY) ? velocidadIzq : 0.0));
+                },
                 this::stop,
-                this);
+                this).beforeStarting(() -> {
+                    spinUpTimer.reset();
+                    spinUpTimer.start();
+                });
+    }
+
+    public Command ShootStop() {
+        return Commands.run(this::stop, this);
     }
 }

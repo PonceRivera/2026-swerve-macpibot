@@ -21,8 +21,8 @@ public class Intake extends SubsystemBase {
     public static final int ROLLER_MOTOR_2_CAN_ID = 14;
     public static final double DEPLOY_BAJAR_SPEED = 0.07;
     public static final double DEPLOY_SUBIR_SPEED = -0.22;
-    public static final double ROLLER_SPEED = 0.57;
-    public static final double ROLLER_2_SPEED = 0.4;
+    public static final double ROLLER_SPEED = 0.73;
+    public static final double ROLLER_2_SPEED = 0.45;
 
     private static final double DEPLOY_KP = 1.0;
     private static final double POSITION_TOLERANCE = 0.005;
@@ -189,15 +189,16 @@ public class Intake extends SubsystemBase {
                 this::pararDeploy);
     }
 
-    public Command cicloDefensaAbajoCommand() {
-        return runOnce(() -> rollerMotor2.set(ROLLER_2_SPEED))
+    public Command cicloDefensaAutoCommand() {
+        return Commands.waitSeconds(2.0)
                 .andThen(
-                        subirPorTiempoCommand(0.8)
-                                .andThen(bajarPorTiempoCommand(1.3)))
-                .repeatedly()
+                        runOnce(() -> rollerMotor2.set(0.3))
+                                .andThen(
+                                        subirPorTiempoCommand(0.8)
+                                                .andThen(bajarPorTiempoCommand(1.3)))
+                                .repeatedly())
                 .finallyDo((interrupted) -> {
                     stop();
-                    subirPorTiempoCommand(0.8).schedule();
                 });
     }
 

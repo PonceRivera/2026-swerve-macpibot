@@ -17,8 +17,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Gancho extends SubsystemBase {
 
     public static final int MOTOR_CAN_ID = 15;
-    public static final double SUBIR_SPEED = 0.7;
-    public static final double BAJAR_SPEED = -1;
+    public static final double SUBIR_SPEED = 0.5;
+    public static final double BAJAR_SPEED = -0.5;
     public static final double MANUAL_SPEED_50 = 1;
     public static final double CONVERSION_FACTOR_POSITION = 1.0 / 75.0;
     public static final double CONVERSION_FACTOR_VELOCITY = CONVERSION_FACTOR_POSITION / 60.0;
@@ -28,7 +28,7 @@ public class Gancho extends SubsystemBase {
     private static final double kD = 0.0;
     private static final double GRABAR_SPEED = -0.4;
 
-    private double[] posiciones = { 0.0, 0.5, 0.0 };
+    private double[] posiciones = { 0.0, 200.00, 0.0 };
     private final String[] posicionesNombres = { "Reposo", "Subir", "Bajar" };
 
     private final SparkMax motor = new SparkMax(MOTOR_CAN_ID, MotorType.kBrushless);
@@ -37,8 +37,11 @@ public class Gancho extends SubsystemBase {
 
     private double currentSetpoint = 0.0;
     private String activePositionName = "Unknown";
+    private boolean isUp = false;
+    private int tickCounter = 0;
 
     public Gancho() {
+        System.out.println("Gancho: Inicializado Subsystem Constructor");
         SparkMaxConfig config = new SparkMaxConfig();
         config.idleMode(IdleMode.kBrake);
         config.smartCurrentLimit(40);
@@ -102,6 +105,13 @@ public class Gancho extends SubsystemBase {
     }
 
     // --- Commands ---
+    public Command Abajo() {
+        return runOnce(() -> irAPosicion(0.0));
+    }
+
+    public Command Arriba() {
+        return runOnce(() -> irAPosicion(-20));
+    }
 
     public Command irAIndiceCommand(int index) {
         return runOnce(() -> {
@@ -111,15 +121,15 @@ public class Gancho extends SubsystemBase {
     }
 
     public Command irAReposoCommand() {
-        return runOnce(this::irAReposo);
+        return runOnce(this::irAReposo).onlyIf(() -> currentSetpoint != posiciones[0]);
     }
 
     public Command irASubirCommand() {
-        return runOnce(this::irASubir);
+        return runOnce(this::irASubir).onlyIf(() -> currentSetpoint != posiciones[1]);
     }
 
     public Command irABajarCommand() {
-        return runOnce(this::irABajar);
+        return runOnce(this::irABajar).onlyIf(() -> currentSetpoint != posiciones[2]);
     }
 
     public Command subirCommand() {
@@ -151,6 +161,26 @@ public class Gancho extends SubsystemBase {
         return runEnd(() -> motor.set(speed), this::stop).withTimeout(segundos);
     }
 
+    public Command subirPorTiempoSafeCommand() {
+        return moverPorTiempoCommand(SUBIR_SPEED, 5.0)
+                .onlyIf(() -> !isUp)
+                .finallyDo((interrupted) -> {
+                    if (!interrupted) {
+                        isUp = true;
+                    }
+                });
+    }
+
+    public Command bajarPorTiempoSafeCommand() {
+        return moverPorTiempoCommand(BAJAR_SPEED, 5.0)
+                .onlyIf(() -> isUp)
+                .finallyDo((interrupted) -> {
+                    if (!interrupted) {
+                        isUp = false;
+                    }
+                });
+    }
+
     public Command mueveteManual50Command(boolean reverse) {
         double speed = reverse ? -MANUAL_SPEED_50 : MANUAL_SPEED_50;
         return runEnd(() -> motor.set(speed), this::stop);
@@ -170,7 +200,12 @@ public class Gancho extends SubsystemBase {
 
     @Override
     public void periodic() {
-        SmartDashboard.putNumber("Gancho/Posicion Actual", getPosicion());
+        tickCounter++;
+        SmartDashboard.putBoolean("Gancho/Vivo (Heartbeat)", (tickCounter / 50) % 2 == 0);
+
+        double currentPos = getPosicion();
+        SmartDashboard.putNumber("Gancho/Posicion Actual", currentPos);
+        SmartDashboard.putNumber("Gancho/Calibrar - Copia este valor", currentPos);
         SmartDashboard.putNumber("Gancho/Objetivo (Setpoint)", currentSetpoint);
         SmartDashboard.putString("Gancho/Nombre Posicion", activePositionName);
 

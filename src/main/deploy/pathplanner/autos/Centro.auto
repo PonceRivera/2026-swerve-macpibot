@@ -7,13 +7,19 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Tostada 1"
+            "pathName": "salida centro"
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "BajarIntake"
+            "name": "Shoot"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "acomodo pasar"
           }
         },
         {
@@ -23,7 +29,26 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "nueva tostada"
+                  "pathName": "pasar centro"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "BajarIntake"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "tomar centro"
                 }
               },
               {
@@ -36,34 +61,33 @@
           }
         },
         {
+          "type": "path",
+          "data": {
+            "pathName": "acomodar pasar 2"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "regresar"
+          }
+        },
+        {
           "type": "named",
           "data": {
             "name": "PararRoller"
           }
         },
         {
-          "type": "parallel",
+          "type": "path",
           "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "Tostada 2"
-                }
-              }
-            ]
+            "pathName": "New Path"
           }
         },
         {
           "type": "named",
           "data": {
             "name": "Shoot"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Tostada 3"
           }
         }
       ]

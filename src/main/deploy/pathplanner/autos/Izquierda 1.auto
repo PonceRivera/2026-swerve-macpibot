@@ -25,14 +25,14 @@
                 "data": {
                   "pathName": "Neutral Cris"
                 }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "BajarIntake"
-                }
               }
             ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "BajarIntake"
           }
         },
         {
@@ -52,6 +52,12 @@
                 }
               }
             ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "PararRoller"
           }
         },
         {

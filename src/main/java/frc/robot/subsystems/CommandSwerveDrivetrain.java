@@ -249,6 +249,14 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
                 m_hasAppliedOperatorPerspective = true;
             });
         }
+
+        // Dashboard updates for distance and angle
+        var pose = getState().Pose;
+        double distance = Math.hypot(pose.getX(), pose.getY());
+        double angle = pose.getRotation().getDegrees();
+
+        edu.wpi.first.wpilibj.smartdashboard.SmartDashboard.putNumber("Robot/Distancia desde inicio (m)", distance);
+        edu.wpi.first.wpilibj.smartdashboard.SmartDashboard.putNumber("Robot/Angulo de disparo (deg)", angle);
     }
 
     private void startSimThread() {

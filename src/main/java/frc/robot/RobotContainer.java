@@ -16,6 +16,8 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandPS5Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
@@ -45,6 +47,7 @@ public class RobotContainer {
         private final Telemetry logger = new Telemetry(MaxSpeed);
         private final CommandPS5Controller joystick = new CommandPS5Controller(0);
         private final CommandXboxController operator = new CommandXboxController(1);
+        private final Joystick joystick2 = new Joystick(2);
 
         public final CommandSwerveDrivetrain drivetrain = TunerConstants.createDrivetrain();
         public final Intake intake = new Intake();
@@ -70,22 +73,27 @@ public class RobotContainer {
                 NamedCommands.registerCommand("Subir", intake.subirPorTiempoCommand(1.0));
                 NamedCommands.registerCommand("PararRoller", intake.pararRollerCommand());
                 NamedCommands.registerCommand("Roller", intake.runOnce(intake::activarRoller));
-                NamedCommands.registerCommand("Shoot", shooter.shootCommand()
-                                .alongWith(Commands.waitSeconds(2.0).andThen(intake.cicloDefensaAbajoCommand()))
-                                .withTimeout(4.0));
+                NamedCommands.registerCommand("Shoot",
+                                shooter.dispararSegunDistanciaCommand(limelight::getDistanciaMetros)
+                                                .withTimeout(4.0));
                 NamedCommands.registerCommand("GanchoReposo", gancho.irAIndiceCommand(0));
                 NamedCommands.registerCommand("GanchoSubir", gancho.irAIndiceCommand(1));
                 NamedCommands.registerCommand("GanchoBajar", gancho.irAIndiceCommand(2));
+                NamedCommands.registerCommand("CicloDefensaAuto", intake.cicloDefensaAutoCommand());
         }
 
         private void configureBindings() {
+
                 drivetrain.setDefaultCommand(
                                 drivetrain.applyRequest(() -> drive
-                                                .withVelocityX(MathUtil.applyDeadband(joystick.getLeftY(), 0.2)
+                                                .withVelocityX((MathUtil.applyDeadband(-joystick.getLeftY(), 0.1)
+                                                                + MathUtil.applyDeadband(-joystick2.getY(), 0.1))
                                                                 * MaxSpeed * speedMultiplier)
-                                                .withVelocityY(MathUtil.applyDeadband(-joystick.getLeftX(), 0.2)
+                                                .withVelocityY((MathUtil.applyDeadband(-joystick.getLeftX(), 0.1)
+                                                                + MathUtil.applyDeadband(-joystick2.getX(), 0.1))
                                                                 * MaxSpeed * speedMultiplier)
-                                                .withRotationalRate(MathUtil.applyDeadband(-joystick.getRightX(), 0.5)
+                                                .withRotationalRate((MathUtil.applyDeadband(-joystick.getRightX(), 0.1)
+                                                                + MathUtil.applyDeadband(-joystick2.getTwist(), 0.1))
                                                                 * MaxAngularRate * speedMultiplier)));
 
                 final var idle = new SwerveRequest.Idle();
@@ -94,15 +102,17 @@ public class RobotContainer {
 
                 joystick.button(10).onTrue(drivetrain.runOnce(drivetrain::seedFieldCentric));
                 joystick.cross().whileTrue(drivetrain.applyRequest(() -> brake));
+                joystick.triangle().whileTrue(drivetrain.applyRequest(() -> point
+                                .withModuleDirection(Rotation2d.kZero)));
                 joystick.circle().whileTrue(drivetrain.applyRequest(() -> point
                                 .withModuleDirection(new Rotation2d(-joystick.getLeftY(), -joystick.getLeftX()))));
 
-                // Control dinamico de velocidad del Swerve via D-Pad (povUp / povDown)
-                joystick.povUp().onTrue(Commands.runOnce(() -> {
+                // Control dinamico de velocidad del Swerve via D-Pad (povLeft / povRight)
+                joystick.povLeft().onTrue(Commands.runOnce(() -> {
                         speedMultiplier = Math.min(1.0, speedMultiplier + 0.1);
                         SmartDashboard.putNumber("Swerve Speed %", speedMultiplier * 100);
                 }));
-                joystick.povDown().onTrue(Commands.runOnce(() -> {
+                joystick.povRight().onTrue(Commands.runOnce(() -> {
                         speedMultiplier = Math.max(0.2, speedMultiplier - 0.1);
                         SmartDashboard.putNumber("Swerve Speed %", speedMultiplier * 100);
                 }));
@@ -124,24 +134,25 @@ public class RobotContainer {
                 joystick.button(8).whileTrue(shooter.shootCommand());
 
                 joystick.button(7).whileTrue(shooter.dispararSegunDistanciaCommand(limelight::getDistanciaMetros));
-                joystick.button(7).whileTrue(
-                                Commands.waitSeconds(2.0).andThen(intake.cicloDefensaAbajoCommand())
-                                                .finallyDo((interrupted) -> intake.subirPorTiempoCommand(1.0)
-                                                                .schedule()));
+
+                new JoystickButton(joystick2, 1).whileTrue(shooter.shootCommand());
 
                 drivetrain.registerTelemetry(logger::telemeterize);
-                operator.b().onTrue(intake.bajarPorTiempoCommand(1.0));
-                operator.a().onTrue(intake.subirPorTiempoCommand(0.8));
+                // operator.b().onTrue(intake.bajarPorTiempoCommand(1.0));
+                // operator.a().onTrue(intake.subirPorTiempoCommand(0.7));
                 operator.x().whileTrue(intake.activarRollerCommand());
                 operator.y().whileTrue(intake.invertirRollerCommand());
-                operator.leftBumper().whileTrue(gancho.subirManualCommand(0.3));
-                operator.rightBumper().whileTrue(gancho.bajarManualCommand(0.4));
+                operator.leftBumper().whileTrue(gancho.subirManualCommand(0.6));
+                operator.rightBumper().whileTrue(gancho.bajarManualCommand(0.6));
 
-                operator.povUp().onTrue(gancho.moverPorTiempoCommand(0.7, 1.0));
-                operator.povDown().onTrue(gancho.moverPorTiempoCommand(-0.7, 1.0));
-                operator.povLeft().whileTrue(intake.invertirRollerCommand());
+                operator.povUp().onTrue(gancho.subirPorTiempoSafeCommand());
+                operator.povDown().onTrue(gancho.bajarPorTiempoSafeCommand());
+                //operator.a().onTrue(gancho.irASubirCommand());
+                //operator.b().onTrue(gancho.irABajarCommand());
+                operator.b().onTrue(gancho.Arriba());
+                operator.a().onTrue(gancho.Abajo());
         }
-
+ 
         public Command getAutonomousCommand() {
                 return autoChooser.getSelected();
         }
