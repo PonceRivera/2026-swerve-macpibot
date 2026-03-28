@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 5.538693181818181,
-        "y": 5.385193181818182
+        "x": 0.887441860465116,
+        "y": 4.464973166368515
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.394636363636363,
-        "y": 5.323352272727273
+        "x": -0.2566149577167023,
+        "y": 4.403132257277606
       },
       "isLocked": false,
       "linkedName": "pasar5"
@@ -62,7 +62,7 @@
   "folder": "Auto Cris",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -89.35625428582462
+    "rotation": 180.0
   },
   "useDefaultConstraints": true
 }

@@ -17,7 +17,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Salida Cris"
+                  "pathName": "salida alianza"
                 }
               },
               {
@@ -30,16 +30,15 @@
           }
         },
         {
-          "type": "parallel",
+          "type": "path",
           "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "Neutral Cris"
-                }
-              }
-            ]
+            "pathName": "Disparo alianza"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "PararRoller"
           }
         },
         {
@@ -55,16 +54,28 @@
           }
         },
         {
-          "type": "parallel",
+          "type": "sequential",
           "data": {
             "commands": [
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Disparo Cris"
+                  "pathName": "Colgar alianza"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "GanchoSubir"
                 }
               }
             ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "GanchoBajar"
           }
         }
       ]

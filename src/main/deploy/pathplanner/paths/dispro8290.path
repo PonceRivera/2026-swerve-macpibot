@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.679725695333362,
-        "y": 2.474362767078594
+        "x": 0.78725,
+        "y": 6.220045454545454
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.065056818181818,
-        "y": 2.808488636363636
+        "x": 1.3816130250758574,
+        "y": 5.378097959204298
       },
       "isLocked": false,
-      "linkedName": "acomodo pasar centro"
+      "linkedName": "8290 recoger 1"
     },
     {
       "anchor": {
-        "x": 2.5262075134168156,
-        "y": 3.983334331646364
+        "x": 3.1268977272727274,
+        "y": 4.313284090909091
       },
       "prevControl": {
-        "x": 2.4768141783355833,
-        "y": 2.736340909090909
+        "x": 1.209080234062997,
+        "y": 4.919403228718175
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "salida centro"
+      "linkedName": "disparo8290"
     }
   ],
   "rotationTargets": [],
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": -11.5601307942178
   },
   "reversed": false,
-  "folder": "Auto Gael",
+  "folder": "New Folder",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -73.73979529168805
+    "rotation": -166.3286928678041
   },
   "useDefaultConstraints": true
 }

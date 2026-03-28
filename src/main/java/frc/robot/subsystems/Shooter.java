@@ -28,13 +28,13 @@ public class Shooter extends SubsystemBase {
     public static final double SHOOT_SPEED_RIGTH = -0.7;
     public static final double SHOOT_FULL_SPEED = 1.0;
 
-    private static final double SPIN_UP_DELAY = 0.7;
+    private static final double SPIN_UP_DELAY = 1.2;
     private static final double SHOOT_FULL_TIMEOUT = 4.0;
 
     private static final double DISTANCIA_MIN_METROS = 1.0;
-    private static final double POTENCIA_MINima = 0.4;
+    private static final double POTENCIA_MINima = 0.48;
     private static final double POTENCIA_MAXima = 1.0;
-    private static final double PENDIENTE_POTENCIA = 0.15;
+    private static final double PENDIENTE_POTENCIA = 0.18;
 
     private final SparkMax motorRight = new SparkMax(MOTOR_RIGHT_CAN_ID, MotorType.kBrushless);
     private final Timer spinUpTimer = new Timer();
@@ -101,9 +101,10 @@ public class Shooter extends SubsystemBase {
     public Command shootCommand() {
         return Commands.runEnd(
                 () -> {
-                    motorRight.set(SHOOT_SPEED_RIGTH);
+                    boolean isReady = spinUpTimer.hasElapsed(SPIN_UP_DELAY);
+                    motorRight.set(isReady ? SHOOT_SPEED_RIGTH : 0.0);
                     motorLeft.setControl(
-                            m_leftRequest.withOutput(spinUpTimer.hasElapsed(SPIN_UP_DELAY) ? SHOOT_SPEED : 0.0));
+                            m_leftRequest.withOutput(isReady ? SHOOT_SPEED : 0.0));
                 },
                 () -> {
                     stop();
@@ -118,9 +119,10 @@ public class Shooter extends SubsystemBase {
     public Command shootFullCommand() {
         return Commands.runEnd(
                 () -> {
-                    motorRight.set(-SHOOT_FULL_SPEED);
+                    boolean isReady = spinUpTimer.hasElapsed(SPIN_UP_DELAY);
+                    motorRight.set(isReady ? -SHOOT_FULL_SPEED : 0.0);
                     motorLeft.setControl(
-                            m_leftRequest.withOutput(spinUpTimer.hasElapsed(SPIN_UP_DELAY) ? SHOOT_FULL_SPEED : 0.0));
+                            m_leftRequest.withOutput(isReady ? SHOOT_FULL_SPEED : 0.0));
                 },
                 () -> {
                     stop();
@@ -144,12 +146,13 @@ public class Shooter extends SubsystemBase {
                     double velocidadIzq = POTENCIA_MINima + (dist - DISTANCIA_MIN_METROS) * PENDIENTE_POTENCIA + 0.02;
                     velocidadIzq = Math.min(Math.max(velocidadIzq, POTENCIA_MINima), POTENCIA_MAXima);
 
-                    double ratioSpin = SHOOT_SPEED_RIGTH / SHOOT_SPEED;
+                    double ratioSpin = -0.8 / 0.6; // Incrementada la fuerza solo para disparos por distancia
                     double velocidadDer = velocidadIzq * ratioSpin;
 
-                    motorRight.set(velocidadDer);
+                    boolean isReady = spinUpTimer.hasElapsed(SPIN_UP_DELAY);
+                    motorRight.set(isReady ? velocidadDer : 0.0);
                     motorLeft.setControl(
-                            m_leftRequest.withOutput(spinUpTimer.hasElapsed(SPIN_UP_DELAY) ? velocidadIzq : 0.0));
+                            m_leftRequest.withOutput(isReady ? velocidadIzq : 0.0));
                 },
                 this::stop,
                 this).beforeStarting(() -> {

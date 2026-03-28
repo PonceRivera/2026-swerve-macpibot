@@ -3,40 +3,40 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.6782110912343464,
-        "y": 6.1848658318425755
+        "x": 2.797079545454545,
+        "y": 3.158920454545455
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.2345027636202044,
-        "y": 6.078708300954937
+        "x": 2.230204545454545,
+        "y": 2.952784090909091
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Derecha3"
     },
     {
       "anchor": {
-        "x": 0.8593977272727269,
-        "y": 5.962375
+        "x": 1.1170681818181816,
+        "y": 2.921863636363637
       },
       "prevControl": {
-        "x": 1.1090521846058543,
-        "y": 5.9755147082806905
+        "x": 2.0652954545454545,
+        "y": 2.8187954545454543
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "salida Cris"
+      "linkedName": null
     }
   ],
   "rotationTargets": [],
   "constraintZones": [
     {
       "name": "Constraints Zone",
-      "minWaypointRelativePos": 0.5457627118644067,
-      "maxWaypointRelativePos": 0.8237288135593216,
+      "minWaypointRelativePos": 0.7845601436265696,
+      "maxWaypointRelativePos": 1.0,
       "constraints": {
         "maxVelocity": 1.0,
-        "maxAcceleration": 3.0,
+        "maxAcceleration": 1.0,
         "maxAngularVelocity": 540.0,
         "maxAngularAcceleration": 720.0,
         "nominalVoltage": 12.0,
@@ -56,13 +56,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": 0.0
   },
   "reversed": false,
-  "folder": "Auto Cris",
+  "folder": "derecha22",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": 24.443954780416558
   },
   "useDefaultConstraints": true
 }

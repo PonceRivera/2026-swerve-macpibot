@@ -3,40 +3,40 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 5.83618962432916,
-        "y": 2.777531305903399
+        "x": 3.1268977272727274,
+        "y": 4.313284090909091
       },
       "prevControl": null,
       "nextControl": {
-        "x": 6.146812324843336,
-        "y": 2.7711284931949596
+        "x": 2.9310681818181816,
+        "y": 5.570715909090909
       },
       "isLocked": false,
-      "linkedName": "neutrla centro "
+      "linkedName": "disparo8290"
     },
     {
       "anchor": {
-        "x": 3.679725695333362,
-        "y": 2.474362767078594
+        "x": 1.0346136363636362,
+        "y": 4.570954545454546
       },
       "prevControl": {
-        "x": 3.387011518648504,
-        "y": 2.473641801921001
+        "x": 1.178909090909091,
+        "y": 5.9108409090909095
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "acomodo pasar centro"
+      "linkedName": "colgar8290"
     }
   ],
   "rotationTargets": [],
   "constraintZones": [
     {
       "name": "Constraints Zone",
-      "minWaypointRelativePos": 0.4183123877917411,
-      "maxWaypointRelativePos": 0.6965888689407528,
+      "minWaypointRelativePos": 0.6391382405745061,
+      "maxWaypointRelativePos": 0.8886894075403938,
       "constraints": {
-        "maxVelocity": 2.0,
-        "maxAcceleration": 2.5,
+        "maxVelocity": 1.0,
+        "maxAcceleration": 1.0,
         "maxAngularVelocity": 540.0,
         "maxAngularAcceleration": 720.0,
         "nominalVoltage": 12.0,
@@ -56,13 +56,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -73.73979529168805
+    "rotation": -1.5074357587751046
   },
   "reversed": false,
-  "folder": "Auto Gael",
+  "folder": "New Folder",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -59.37778704234522
+    "rotation": -11.5601307942178
   },
   "useDefaultConstraints": true
 }

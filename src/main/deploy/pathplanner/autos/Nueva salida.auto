@@ -5,19 +5,13 @@
     "data": {
       "commands": [
         {
-          "type": "named",
-          "data": {
-            "name": "BajarIntake"
-          }
-        },
-        {
           "type": "sequential",
           "data": {
             "commands": [
               {
-                "type": "path",
+                "type": "named",
                 "data": {
-                  "pathName": "Salida Cris"
+                  "name": "BajarIntake"
                 }
               },
               {
@@ -30,22 +24,15 @@
           }
         },
         {
-          "type": "parallel",
+          "type": "path",
           "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "Neutral Cris"
-                }
-              }
-            ]
+            "pathName": "salida8290"
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "Shoot"
+            "name": "PararRoller"
           }
         },
         {
@@ -55,22 +42,33 @@
           }
         },
         {
-          "type": "parallel",
+          "type": "path",
           "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "Disparo Cris"
-                }
-              }
-            ]
+            "pathName": "dispro8290"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "colgar8290"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "GanchoSubir"
           }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": null,
+  "folder": "New Folder",
   "choreoAuto": false
 }

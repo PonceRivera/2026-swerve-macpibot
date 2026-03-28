@@ -4,39 +4,39 @@
     {
       "anchor": {
         "x": 3.6782110912343464,
-        "y": 6.1848658318425755
+        "y": 3.9295348837209296
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.2345027636202044,
-        "y": 6.078708300954937
+        "x": 3.9147566265702394,
+        "y": 4.010443534140126
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 0.8593977272727269,
-        "y": 5.962375
+        "x": 0.5295795454545453,
+        "y": 5.879920454545454
       },
       "prevControl": {
-        "x": 1.1090521846058543,
-        "y": 5.9755147082806905
+        "x": 0.2162552571659903,
+        "y": 6.017568285955322
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "salida Cris"
+      "linkedName": "recoger de alianza"
     }
   ],
   "rotationTargets": [],
   "constraintZones": [
     {
       "name": "Constraints Zone",
-      "minWaypointRelativePos": 0.5457627118644067,
-      "maxWaypointRelativePos": 0.8237288135593216,
+      "minWaypointRelativePos": 0.5763016157989228,
+      "maxWaypointRelativePos": 0.9874326750448834,
       "constraints": {
-        "maxVelocity": 1.0,
-        "maxAcceleration": 3.0,
+        "maxVelocity": 1.5,
+        "maxAcceleration": 2.0,
         "maxAngularVelocity": 540.0,
         "maxAngularAcceleration": 720.0,
         "nominalVoltage": 12.0,
@@ -56,13 +56,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": 175.9143832200251
   },
   "reversed": false,
-  "folder": "Auto Cris",
+  "folder": "centro sin salir",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": 179.5481773163333
   },
   "useDefaultConstraints": true
 }

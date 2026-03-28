@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 5.83618962432916,
-        "y": 2.777531305903399
+        "x": 0.5295795454545453,
+        "y": 5.879920454545454
       },
       "prevControl": null,
       "nextControl": {
-        "x": 6.892548517862618,
-        "y": 2.6574719662568764
+        "x": 1.529579545454545,
+        "y": 5.879920454545454
       },
       "isLocked": false,
-      "linkedName": "neutrla centro "
+      "linkedName": "recoger de alianza"
     },
     {
       "anchor": {
-        "x": 7.775272727272727,
-        "y": 2.474362767078594
+        "x": 2.405420454545454,
+        "y": 3.983334331646364
       },
       "prevControl": {
-        "x": 6.608001960097329,
-        "y": 2.462462025764304
+        "x": 2.2920454545454545,
+        "y": 5.642863636363636
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "tomar centro"
+      "linkedName": "salida centro"
     }
   ],
   "rotationTargets": [],
@@ -45,10 +45,10 @@
     "rotation": 0.0
   },
   "reversed": false,
-  "folder": "Auto Gael",
+  "folder": "centro sin salir",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -59.37778704234522
+    "rotation": 175.9143832200251
   },
   "useDefaultConstraints": true
 }

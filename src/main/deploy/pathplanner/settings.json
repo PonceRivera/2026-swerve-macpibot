@@ -6,9 +6,14 @@
     "Auto Cris",
     "Auto Gael",
     "Auto Julio",
-    "Auto Tadeo"
+    "Auto Tadeo",
+    "New Folder",
+    "derecha22",
+    "centro sin salir"
   ],
-  "autoFolders": [],
+  "autoFolders": [
+    "New Folder"
+  ],
   "defaultMaxVel": 3.0,
   "defaultMaxAccel": 3.0,
   "defaultMaxAngVel": 540.0,

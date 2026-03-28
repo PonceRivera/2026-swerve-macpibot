@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.5262075134168156,
-        "y": 3.983334331646364
+        "x": 3.765920454545454,
+        "y": 0.6852840909090911
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.1755206182044433,
-        "y": 2.8265332954400857
+        "x": 2.5497159090909087,
+        "y": 1.056329545454546
       },
       "isLocked": false,
-      "linkedName": "salida centro"
+      "linkedName": null
     },
     {
       "anchor": {
-        "x": 3.679725695333362,
-        "y": 2.474362767078594
+        "x": 3.188738636363636,
+        "y": 3.0043181818181823
       },
       "prevControl": {
-        "x": 3.4787443039279586,
-        "y": 2.991473736672299
+        "x": 2.714625,
+        "y": 2.169465909090909
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "acomodo pasar centro"
+      "linkedName": "Derecha1"
     }
   ],
   "rotationTargets": [],
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -73.73979529168805
+    "rotation": 29.744881296942236
   },
   "reversed": false,
-  "folder": "Auto Gael",
+  "folder": "derecha22",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 176.18592516570968
   },
   "useDefaultConstraints": true
 }

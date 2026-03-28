@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 7.620983899821109,
-        "y": 7.044812164579606
+        "x": 3.2401252236135956,
+        "y": 5.0004114490161
       },
       "prevControl": null,
       "nextControl": {
-        "x": 7.888647727272726,
-        "y": 4.663715909090908
+        "x": 1.650035778175312,
+        "y": 6.1686404293381045
       },
       "isLocked": false,
       "linkedName": "Neutral Cris"
     },
     {
       "anchor": {
-        "x": 5.538693181818181,
-        "y": 5.385193181818182
+        "x": 0.887441860465116,
+        "y": 4.464973166368515
       },
       "prevControl": {
-        "x": 8.424602272727272,
-        "y": 4.292670454545455
+        "x": 1.5040071556350623,
+        "y": 5.389821109123434
       },
       "nextControl": null,
       "isLocked": false,
@@ -63,13 +63,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -89.35625428582462
+    "rotation": 180.0
   },
   "reversed": false,
   "folder": "Auto Cris",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -80.53767779197449
+    "rotation": -38.659808254089995
   },
   "useDefaultConstraints": true
 }

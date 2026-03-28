@@ -7,7 +7,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "salida centro"
+            "pathName": "Derecha1"
           }
         },
         {
@@ -17,38 +17,19 @@
           }
         },
         {
-          "type": "path",
+          "type": "named",
           "data": {
-            "pathName": "acomodo pasar"
+            "name": "BajarIntake"
           }
         },
         {
-          "type": "parallel",
+          "type": "sequential",
           "data": {
             "commands": [
               {
                 "type": "path",
                 "data": {
-                  "pathName": "pasar centro"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "BajarIntake"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "parallel",
-          "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "tomar centro"
+                  "pathName": "Derecha2"
                 }
               },
               {
@@ -63,25 +44,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "acomodar pasar 2"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "regresar"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "PararRoller"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "New Path"
+            "pathName": "Derecha3"
           }
         },
         {
@@ -89,11 +52,17 @@
           "data": {
             "name": "Shoot"
           }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Derecha4"
+          }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": null,
+  "folder": "New Folder",
   "choreoAuto": false
 }

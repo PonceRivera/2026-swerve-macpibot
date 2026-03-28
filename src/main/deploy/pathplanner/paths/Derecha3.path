@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 7.775272727272727,
-        "y": 2.474362767078594
+        "x": 0.8903181818181816,
+        "y": 5.766545454545455
       },
       "prevControl": null,
       "nextControl": {
-        "x": 7.549416311730474,
-        "y": 2.367176575997814
+        "x": 1.8903181818181816,
+        "y": 5.766545454545455
       },
       "isLocked": false,
-      "linkedName": "tomar centro"
+      "linkedName": "Derecha2"
     },
     {
       "anchor": {
-        "x": 5.83618962432916,
-        "y": 2.777531305903399
+        "x": 2.797079545454545,
+        "y": 3.158920454545455
       },
       "prevControl": {
-        "x": 5.422881391828807,
-        "y": 2.806545477394322
+        "x": 2.456954545454545,
+        "y": 3.767022727272728
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "neutrla centro "
+      "linkedName": "Derecha3"
     }
   ],
   "rotationTargets": [],
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -59.37778704234522
+    "rotation": 24.443954780416558
   },
   "reversed": false,
-  "folder": "Auto Gael",
+  "folder": "derecha22",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 172.64762064010762
   },
   "useDefaultConstraints": true
 }

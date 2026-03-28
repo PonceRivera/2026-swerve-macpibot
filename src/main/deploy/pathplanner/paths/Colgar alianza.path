@@ -3,33 +3,47 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.687785633129659,
+        "x": 2.405420454545454,
         "y": 3.983334331646364
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.7423384153175765,
-        "y": 3.9851917764111735
+        "x": 2.539409090909091,
+        "y": 4.880159090909092
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "salida centro"
     },
     {
       "anchor": {
-        "x": 2.5262075134168156,
-        "y": 3.983334331646364
+        "x": 0.9006249999999998,
+        "y": 4.4885
       },
       "prevControl": {
-        "x": 2.2762102392951333,
-        "y": 3.982166884975849
+        "x": 1.529340909090909,
+        "y": 4.869852272727273
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "salida centro"
+      "linkedName": null
     }
   ],
   "rotationTargets": [],
-  "constraintZones": [],
+  "constraintZones": [
+    {
+      "name": "Constraints Zone",
+      "minWaypointRelativePos": 0.5834829443447026,
+      "maxWaypointRelativePos": 1.0,
+      "constraints": {
+        "maxVelocity": 1.0,
+        "maxAcceleration": 2.2,
+        "maxAngularVelocity": 540.0,
+        "maxAngularAcceleration": 720.0,
+        "nominalVoltage": 12.0,
+        "unlimited": false
+      }
+    }
+  ],
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
@@ -42,13 +56,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 178.40885972880525
   },
   "reversed": false,
-  "folder": "Auto Gael",
+  "folder": "centro sin salir",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -0.643745714175356
+    "rotation": 0.0
   },
   "useDefaultConstraints": true
 }
