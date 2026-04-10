@@ -143,12 +143,14 @@ public class RobotContainer {
                 operator.leftBumper().whileTrue(m_Gancho2.subirManualCommand(0.6));
                 operator.rightBumper().whileTrue(m_Gancho2.bajarManualCommand(0.6));
 
-                //operator.povUp().onTrue(m_Gancho2.mandarGanchoAPosicion(Gancho2.Posicion.Release));
-                //operator.povDown().onTrue(m_Gancho2.mandarGanchoAPosicion(Gancho2.Posicion.Home));
+                // operator.povUp().onTrue(m_Gancho2.mandarGanchoAPosicion(Gancho2.Posicion.Release));
+                // operator.povDown().onTrue(m_Gancho2.mandarGanchoAPosicion(Gancho2.Posicion.Home));
 
                 // Default Commands for Manual Control (Operator Xbox Controller)
-                //m_Gancho2.setDefaultCommand(m_Gancho2.controlLoopCommand(() -> operator.getRightY()));
-                //intake.setDefaultCommand(intake.controlLoopCommand(() -> operator.getLeftY()));
+                // m_Gancho2.setDefaultCommand(m_Gancho2.controlLoopCommand(() ->
+                // operator.getRightY()));
+                // intake.setDefaultCommand(intake.controlLoopCommand(() ->
+                // operator.getLeftY()));
 
                 joystick.cross().onTrue(m_Gancho2.mandarGanchoAPosicion(Gancho2.Posicion.Home));
                 joystick.circle().onTrue(m_Gancho2.mandarGanchoAPosicion(Gancho2.Posicion.Release));
@@ -158,3 +160,5 @@ public class RobotContainer {
                 return autoChooser.getSelected();
         }
 }
+
+// Codigo final
